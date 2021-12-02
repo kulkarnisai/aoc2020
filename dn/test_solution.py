@@ -19,7 +19,7 @@ def test_dayN():
     test_arr = preprocess("test_input")
     arr = preprocess("input")
 
-    print("Day N Results")
+    print("Day N Results:")
 
     assert FNAME1(test_arr) == 0
     print("P1:\t" + str(FNAME1(arr)))
