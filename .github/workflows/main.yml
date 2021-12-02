@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           pip install pytest
-          pytest --junit-xml='test-results/latest.xml'
+          pytest -v --junit-xml='test-results/latest.xml' -o junit_logging=all
 
       # publish junit results
       - name: Publish Unit Test Results
