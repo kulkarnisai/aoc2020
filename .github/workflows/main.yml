@@ -34,7 +34,7 @@ jobs:
         id: pytest-runner
         run: |
           pip install pytest pytest-html
-          pytest -v --html=index.html--self-contained-html
+          pytest -v --html="index.html"--self-contained-html
 
       - name: Attach the report
         uses: actions/upload-artifact@v1
