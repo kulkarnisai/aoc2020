@@ -1,3 +1,4 @@
+import os
 from bisect import bisect
 
 def twosum(nums, target):    
@@ -15,18 +16,24 @@ def threesum(nums, target):
            return nums[left] * ans
    return -1
 
+def preprocess(fname):
+    fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), fname)
+    with open(fpath) as f:
+        arr = [int(num) for num in f.readlines()]
+    arr.sort()
+    return arr
 
-if __name__ == "__main__":
-    with open("test_input") as f:
-        test_nums = [int(num) for num in f.readlines()]
-    test_nums.sort()
+def test_day1():
+    test_nums = preprocess("test_input")
+    nums = preprocess("input")
 
-    with open("input") as f:
-        nums = [int(num) for num in f.readlines()]
-    nums.sort()
-  
+    print("Day 1 Results")
+
     assert twosum(test_nums, 2020) == 514579
     print("P1:\t" + str(twosum(nums, 2020)))
 
     assert threesum(test_nums, 2020) == 241861950
     print("P2:\t" + str(threesum(nums, 2020)))
+
+if __name__ == "__main__":
+    test_day1()

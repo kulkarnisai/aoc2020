@@ -1,4 +1,6 @@
+import os
 from collections import Counter
+
 def count_valid1(crs):    
     count = 0
     for cr in crs:
@@ -30,7 +32,8 @@ class Criteria:
         return  "[" + str(self.n1) + ", " + str(self.n2) + ", " + self.letter + ", " + self.pwd + "]"
 
 def preprocess(fname):
-    with open(fname) as f:
+    fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), fname)
+    with open(fpath) as f:
         lines = f.readlines()
     criteria = []
     for line in lines:
@@ -44,12 +47,17 @@ def preprocess(fname):
     return criteria
         
 
-if __name__ == "__main__":
+def test_day2():
     test_arr = preprocess("test_input")
     arr = preprocess("input")
-              
+
+    print("Day 2 Results")
+
     assert count_valid1(test_arr) == 2
     print("P1:\t" + str(count_valid1(arr)))
 
     assert count_valid2(test_arr) == 1
     print("P2:\t" + str(count_valid2(arr)))
+
+if __name__ == "__main__":
+    test_day2()
