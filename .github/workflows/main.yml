@@ -33,7 +33,7 @@ jobs:
       - name: Run a multi-line script
         id: pytest-runner
         run: |
-          pip install pytest
+          pip install pytest pytest-html
           pytest -v --junit-xml='test-results/latest.xml' -o junit_logging=all --html=test-results/latest.html --self-contained-html
 
       - name: Attach the report
