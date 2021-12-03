@@ -48,7 +48,7 @@ def preprocess(fname):
     return criteria
         
 
-def test_day2(outfile=None):
+def test_day2(outfile):
     test_arr = preprocess("test_input")
     arr = preprocess("input")
 
@@ -70,4 +70,4 @@ def test_day2(outfile=None):
     print("P2:\t" + str(count_valid2(arr)) + codeblock)
 
 if __name__ == "__main__":
-    test_day2()
+    test_day2(None)

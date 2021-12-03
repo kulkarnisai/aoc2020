@@ -1,4 +1,5 @@
 import os
+import sys
 from bisect import bisect
 
 def twosum(nums, target):    
@@ -23,7 +24,7 @@ def preprocess(fname):
     arr.sort()
     return arr
 
-def test_day1(outfile=None):
+def test_day1(outfile):
     test_nums = preprocess("test_input")
     nums = preprocess("input")
 
@@ -45,4 +46,4 @@ def test_day1(outfile=None):
     print("P2:\t" + str(threesum(nums, 2020)) + codeblock)
 
 if __name__ == "__main__":
-    test_day1()
+    test_day1(None)
