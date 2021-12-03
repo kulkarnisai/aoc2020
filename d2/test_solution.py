@@ -1,4 +1,5 @@
 import os
+import sys
 from collections import Counter
 
 def count_valid1(crs):    
@@ -47,17 +48,26 @@ def preprocess(fname):
     return criteria
         
 
-def test_day2():
+def test_day2(outfile=None):
     test_arr = preprocess("test_input")
     arr = preprocess("input")
 
-    print("Day 2 Results")
+    if outfile:
+        log = open(outfile, 'a')
+        sys.stdout = log  
+        header = '## '
+        codeblock = '\n```'
+    else:
+        header = ''
+        codeblock = ''
 
+    print(header + "Day 2 Results" + codeblock)
+    
     assert count_valid1(test_arr) == 2
     print("P1:\t" + str(count_valid1(arr)))
 
     assert count_valid2(test_arr) == 1
-    print("P2:\t" + str(count_valid2(arr)))
+    print("P2:\t" + str(count_valid2(arr)) + codeblock)
 
 if __name__ == "__main__":
     test_day2()
