@@ -1,12 +1,14 @@
 
 import os
 import sys
+import pytest 
+
 def FNAME1(arr):    
-   return 0
+    return 0
 
 
 def FNAME2(arr):    
-   return 0
+    return 0
 
 def preprocess(fname):
     fpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), fname)
@@ -15,6 +17,7 @@ def preprocess(fname):
 
     return arr
 
+@pytest.mark.skip(reason="TEMPLATE TEST")
 def test_dayN(outfile):
 
     test_arr = preprocess("test_input")
