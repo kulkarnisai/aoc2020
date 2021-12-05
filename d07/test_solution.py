@@ -26,8 +26,8 @@ def preprocess(fname):
     with open(fpath) as f:
         arr = f.readlines()
     td, bu = {}, {}
-    topre = re.compile("(?P<topc>[a-zA-Z ]+) (?P<bctoken>bags contain)")
-    botre = re.compile("(\d+) (\w+ \w+) (bag)")
+    topre = re.compile(r"(?P<topc>[a-zA-Z ]+) (?P<bctoken>bags contain)")
+    botre = re.compile(r"(\d+) (\w+ \w+) (bag)")
     for line in arr:
         topc = topre.match(line).group('topc')
         td[topc] = {}
